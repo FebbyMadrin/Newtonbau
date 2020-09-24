@@ -1,0 +1,709 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>OpenCV - Febby@Newtonbau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.077507d7.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#required-packages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Febby@Newtonbau" class="md-header-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Febby@Newtonbau
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              OpenCV
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Febby@Newtonbau" class="md-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Febby@Newtonbau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Niblack%20Binarization/" title="Niblack Binarization" class="md-nav__link">
+      Niblack Binarization
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Deep Learning Tutorial" class="md-nav__link">
+      Deep Learning Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CUDA%20Programming/" title="CUDA" class="md-nav__link">
+      CUDA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        OpenCV
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="OpenCV" class="md-nav__link md-nav__link--active">
+      OpenCV
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-packages" class="md-nav__link">
+    Required Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-opencv-source-code" class="md-nav__link">
+    Getting OpenCV Source Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting OpenCV Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-latest-stable-opencv-version" class="md-nav__link">
+    Getting the Latest Stable OpenCV Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-cutting-edge-opencv-from-the-git-repository" class="md-nav__link">
+    Getting the Cutting-edge OpenCV from the Git Repository
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-opencv-from-source-using-cmake" class="md-nav__link">
+    Building OpenCV from Source Using CMake
+  </a>
+  
+    <nav class="md-nav" aria-label="Building OpenCV from Source Using CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-build-opencv-with-extra-modules" class="md-nav__link">
+    How to build OpenCV with extra modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-repository-documentation" class="md-nav__link">
+    Update the repository documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Setup%20and%20Troubleshoots/" title="Setup & Troubleshoot" class="md-nav__link">
+      Setup & Troubleshoot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-nav__link">
+      Tips & Tricks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CV/" title="CV" class="md-nav__link">
+      CV
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#required-packages" class="md-nav__link">
+    Required Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-opencv-source-code" class="md-nav__link">
+    Getting OpenCV Source Code
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting OpenCV Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-latest-stable-opencv-version" class="md-nav__link">
+    Getting the Latest Stable OpenCV Version
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-cutting-edge-opencv-from-the-git-repository" class="md-nav__link">
+    Getting the Cutting-edge OpenCV from the Git Repository
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-opencv-from-source-using-cmake" class="md-nav__link">
+    Building OpenCV from Source Using CMake
+  </a>
+  
+    <nav class="md-nav" aria-label="Building OpenCV from Source Using CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-build-opencv-with-extra-modules" class="md-nav__link">
+    How to build OpenCV with extra modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-repository-documentation" class="md-nav__link">
+    Update the repository documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>OpenCV</h1>
+                
+                <p>The following steps have been tested for Ubuntu 10.04 but should work with other distros as well.</p>
+<h2 id="required-packages">Required Packages</h2>
+<ul>
+<li>GCC 4.4.x or later</li>
+<li>CMake 2.8.7 or higher</li>
+<li>Git</li>
+<li>GTK+2.x or higher, including headers (libgtk2.0-dev)</li>
+<li>pkg-config</li>
+<li>Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)</li>
+<li>ffmpeg or libav development packages: libavcodec-dev, libavformat-dev, libswscale-dev</li>
+<li>[optional] libtbb2 libtbb-dev</li>
+<li>[optional] libdc1394 2.x</li>
+<li>[optional] libjpeg-dev, libpng-dev, libtiff-dev, libjasper-dev, libdc1394-22-dev</li>
+<li>[optional] CUDA Toolkit 6.5 or higher</li>
+</ul>
+<p>The packages can be installed using a terminal and the following commands or by using Synaptic Manager:</p>
+<p>[compiler] sudo apt-get install build-essential</p>
+<p>[required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</p>
+<p>[optional] sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev</p>
+<h2 id="getting-opencv-source-code">Getting OpenCV Source Code</h2>
+<p>You can use the latest stable OpenCV version or you can grab the latest snapshot from our <a href="https://github.com/opencv/opencv.git">Git repository</a>.</p>
+<h3 id="getting-the-latest-stable-opencv-version">Getting the Latest Stable OpenCV Version</h3>
+<ul>
+<li>Go to our <a href="http://opencv.org/releases.html">downloads page</a>.</li>
+<li>Download the source archive and unpack it.</li>
+</ul>
+<h3 id="getting-the-cutting-edge-opencv-from-the-git-repository">Getting the Cutting-edge OpenCV from the Git Repository</h3>
+<p>Launch Git client and clone <a href="http://github.com/opencv/opencv">OpenCV repository</a>. If you need modules from <a href="http://github.com/opencv/opencv_contrib">OpenCV contrib repository</a> then clone it as well.</p>
+<p>For example</p>
+<p>cd ~/<my_working_directory></p>
+<p>git clone https://github.com/opencv/opencv.git</p>
+<p>git clone https://github.com/opencv/opencv_contrib.git</p>
+<h2 id="building-opencv-from-source-using-cmake">Building OpenCV from Source Using CMake</h2>
+<ol>
+<li>Create a temporary directory, which we denote as <cmake_build_dir>, where you want to put the generated Makefiles, project files as well the object files and output binaries and enter there.</li>
+</ol>
+<p>For example</p>
+<p>cd ~/opencv</p>
+<p>mkdir build</p>
+<p>cd build</p>
+<ol>
+<li>Configuring. Run cmake [<some optional parameters>] <path to the OpenCV source directory></li>
+</ol>
+<p>For example</p>
+<p>cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local ..</p>
+<p>or cmake-gui</p>
+<ul>
+<li>set full path to OpenCV source code, e.g. /home/user/opencv</li>
+<li>set full path to <cmake_build_dir>, e.g. /home/user/opencv/build</li>
+<li>set optional parameters</li>
+<li>run: ?Configure?</li>
+<li>
+<p>run: ?Generate?</p>
+</li>
+<li>
+<p>Note</p>
+<p>Use <code>cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..</code> , without spaces after -D if the above example doesn't work.</p>
+</li>
+<li>
+<p>Description of some parameters</p>
+</li>
+<li>
+<p>build type: <code>CMAKE_BUILD_TYPE=Release\Debug</code></p>
+</li>
+<li>to build with modules from opencv_contrib set OPENCV_EXTRA_MODULES_PATH to <path to opencv_contrib/modules/></li>
+<li>set BUILD_DOCS for building documents</li>
+<li>
+<p>set BUILD_EXAMPLES to build all examples</p>
+</li>
+<li>
+<p>[optional] Building python. Set the following python parameters:</p>
+</li>
+<li>
+<p>PYTHON2(3)_EXECUTABLE = <path to python></p>
+</li>
+<li>PYTHON_INCLUDE_DIR = /usr/include/python<version></li>
+<li>PYTHON_INCLUDE_DIR2 = /usr/include/x86_64-linux-gnu/python<version></li>
+<li>PYTHON_LIBRARY = /usr/lib/x86_64-linux-gnu/libpython<version>.so</li>
+<li>
+<p>PYTHON2(3)_NUMPY_INCLUDE_DIRS = /usr/lib/python<version>/dist-packages/numpy/core/include/</p>
+</li>
+<li>
+<p>[optional] Building java.</p>
+</li>
+<li>
+<p>Unset parameter: BUILD_SHARED_LIBS</p>
+</li>
+<li>
+<p>It is useful also to unset BUILD_EXAMPLES, BUILD_TESTS, BUILD_PERF_TESTS - as they all will be statically linked with OpenCV and can take a lot of memory.</p>
+</li>
+<li>
+<p>Build. From build directory execute <em>make</em>, it is recommended to do this in several threads</p>
+</li>
+</ul>
+<p>For example</p>
+<p>make -j7 # runs 7 jobs in parallel</p>
+<ol>
+<li>[optional] Building documents. Enter <cmake_build_dir/doc/> and run make with target "doxygen"</li>
+</ol>
+<p>For example</p>
+<p>cd ~/opencv/build/doc/</p>
+<p>make -j7 doxygen</p>
+<ol>
+<li>To install libraries, execute the following command from build directory</li>
+</ol>
+<p>sudo make install</p>
+<ol>
+<li>
+<p>[optional] Running tests</p>
+</li>
+<li>
+<p>Get the required test data from <a href="https://github.com/opencv/opencv_extra">OpenCV extra repository</a>.</p>
+</li>
+</ol>
+<p>For example</p>
+<p>git clone https://github.com/opencv/opencv_extra.git</p>
+<ul>
+<li>set OPENCV_TEST_DATA_PATH environment variable to <path to opencv_extra/testdata>.</li>
+<li>execute tests from build directory.</li>
+</ul>
+<p>For example</p>
+<p><cmake_build_dir>/bin/opencv_test_core</p>
+<ul>
+<li>Note</li>
+</ul>
+<p>If the size of the created library is a critical issue (like in case of an Android build) you can use the install/strip command to get the smallest size possible. The <em>stripped</em> version appears to be twice as small. However, we do not recommend using this unless those extra megabytes do really matter.</p>
+<h3 id="how-to-build-opencv-with-extra-modules">How to build OpenCV with extra modules</h3>
+<p>You can build OpenCV, so it will include the modules from this repository. Contrib modules are under constant development and it is recommended to use them alongside the master branch or latest releases of OpenCV.</p>
+<p>Here is the CMake command for you:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ cd &lt;opencv_build_directory&gt;
+$ cmake -DOPENCV_EXTRA_MODULES_PATH=&lt;opencv_contrib&gt;/modules &lt;opencv_source_directory&gt;
+$ make -j5
+</code></pre></div>
+</td></tr></table>
+
+<p>As the result, OpenCV will be built in the <code>&lt;opencv_build_directory&gt;</code> with all modules from <code>opencv_contrib</code> repository. If you don't want all of the modules, use CMake's <code>BUILD_opencv_*</code> options. Like in this example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>$ cmake -DOPENCV_EXTRA_MODULES_PATH=&lt;opencv_contrib&gt;/modules -DBUILD_opencv_legacy=OFF &lt;opencv_source_directory&gt;
+</code></pre></div>
+</td></tr></table>
+
+<p>If you also want to build the samples from the "samples" folder of each module, also include the "-DBUILD_EXAMPLES=ON" option.</p>
+<p>If you prefer using the gui version of cmake (cmake-gui), then, you can add <code>opencv_contrib</code> modules within <code>opencv</code> core by doing the following:</p>
+<ol>
+<li>start cmake-gui</li>
+<li>select the opencv source code folder and the folder where binaries will be built (the 2 upper forms of the interface)</li>
+<li>press the <code>configure</code> button. you will see all the opencv build parameters in the central interface</li>
+<li>browse the parameters and look for the form called <code>OPENCV_EXTRA_MODULES_PATH</code> (use the search form to focus rapidly on it)</li>
+<li>complete this <code>OPENCV_EXTRA_MODULES_PATH</code> by the proper pathname to the <code>&lt;opencv_contrib&gt;/modules</code> value using its browse button.</li>
+<li>press the <code>configure</code> button followed by the <code>generate</code> button (the first time, you will be asked which makefile style to use)</li>
+<li>build the <code>opencv</code> core with the method you chose (make and make install if you chose Unix makefile at step 6)</li>
+<li>to run, linker flags to contrib modules will need to be added to use them in your code/IDE. For example to use the aruco module, "-lopencv_aruco" flag will be added.</li>
+</ol>
+<h3 id="update-the-repository-documentation">Update the repository documentation</h3>
+<p>In order to keep a clean overview containing all contributed modules the following files need to be created/adapted.</p>
+<ol>
+<li>Update the README.md file under the modules folder. Here you add your model with a single line description.</li>
+<li>Add a README.md inside your own module folder. This README explains which functionality (separate functions) is available, links to the corresponding samples and explains in somewhat more detail what the module is expected to do. If any extra requirements are needed to build the module without problems, add them here also.</li>
+</ol>
+<p>-D OPENCV_GENERATE_PKGCONFIG=YES</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo ldconfig -v
+</code></pre></div>
+</td></tr></table>
+
+<p>sudo mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so</p>
+<p>daripada memakai CMAke, meiding pakai c++</p>
+<p>contohnya pada pemakaaain</p>
+<p>g++ opencv_version.cpp $(pkg-config --cflags --libs opencv4) -o show_version</p>
+<p>g++ niblack_thresholding.cpp.o $(pkg-config --cflags --libs opencv4) -o show_version -lopencv_ximgproc</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../CUDA%20Programming/" title="CUDA" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                CUDA
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Setup%20and%20Troubleshoots/" title="Setup & Troubleshoot" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Setup & Troubleshoot
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/febbymadrin/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: [],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

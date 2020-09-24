@@ -16,7 +16,7 @@
     
     
       
-        <title>About - Febby@Newtonbau</title>
+        <title>Deep Learning Tutorial - Febby@Newtonbau</title>
       
     
     
@@ -49,6 +49,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#newtonbau-jetson-nano-_-getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              About
+              Deep Learning Tutorial
             
           </span>
         </div>
@@ -169,11 +174,69 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../NVIDIA%20Courses/" title="Deep Learning Tutorial" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Deep Learning Tutorial
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Deep Learning Tutorial" class="md-nav__link md-nav__link--active">
       Deep Learning Tutorial
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer" class="md-nav__link">
+    Computer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -229,18 +292,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="About" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
       About
     </a>
-    
   </li>
 
     
@@ -263,6 +319,56 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#computer" class="md-nav__link">
+    Computer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -272,9 +378,78 @@
                   
                 
                 
-                  <h1>About</h1>
-                
-                
+                <h1 id="newtonbau-jetson-nano-_-getting-started">Newtonbau : Jetson Nano _ Getting Started</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>In order to be successful in this course, you will need the following:</p>
+<h3 id="hardware">Hardware</h3>
+<ul>
+<li>Jetson Nano Developer Kit</li>
+<li>Computer with Internet Access and SD card port</li>
+<li>microSD Memory Card (32GB UHS-I minimum)</li>
+<li>compatible 5V 4A Power Supply with 2.1mm DC barrel connector</li>
+<li>2-pin jumper</li>
+<li>USB cable (Micro-B to Type-A)</li>
+<li>compatible USB webcam camera such as</li>
+<li>Logitech C270 Webcam</li>
+</ul>
+<p>The complete hardware kit is available from Sparkfun either with the Jetson Nano included or without the Jetson Nano included.</p>
+<h3 id="computer">Computer</h3>
+<ul>
+<li>A computer with an internet connection and the ability to flash your microSD card</li>
+<li>An available USBA port on your computer (you may need an adapter if you only have USBC ports)</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<h2 id="installation">Installation</h2>
+<p>follow the instruction from xxx, but, would better to use this image</p>
+<h2 id="cross-compiling-enviroment">Cross-Compiling Enviroment</h2>
+<h3 id="cuda-toolkit">Cuda toolkit</h3>
+<h3 id="l4t">L4T</h3>
+<p>run target via host-browser (USB and LAN) Jupyter activated</p>
+<h1 id="running-example-on-jetson-nano">Running example on Jetson Nano</h1>
+<h1 id="running-visionworks-sfm-sample">Running VisionWorks - SFM Sample</h1>
+<h2 id="tips-and-tricks">Tips and Tricks</h2>
+<p>join some free course from Nvidia Deep Learning Institut, as follows:</p>
+<ul>
+<li>Fundamental ...</li>
+<li>Deepstream ...</li>
+</ul>
+<p>Use Barrier to work with two monitor host and target, but with the same/one keyboard and mouse</p>
+<p>Useful link to follow:</p>
+<ul>
+<li>
+<p>pysearchimage</p>
+</li>
+<li>
+<p>[jetsonhacks]: </p>
+</li>
+<li>
+<p>nvidia developer</p>
+</li>
+<li>
+<p>medium</p>
+</li>
+<li>
+<p>[cuda-tutorial.readthedocs.io]: https://cuda-tutorial.readthedocs.io/en/latest/tutorials/tutorial01/  "readthedocs.io"</p>
+</li>
+<li></li>
+</ul>
+<p>install spyder3</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo apt-get install spyder3
+</code></pre></div>
+</td></tr></table>
+
+<p>install geany</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo apt-get install geany
+</code></pre></div>
+</td></tr></table>
+
+<p>opencv path configuration</p>
+<p>make new open cv, install sendiri, ikuti panduan nya dengan baik</p>
+<p>termasuk install opencv.contrib sekaligus</p>
+<p>https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html</p>
+<p>bisa membuat jetson nano hank, sebaiknya close semua app</p>
+<p>?apakah openCV sudah terinstall di jetson nano?</p>
+<p>file Testing bisa</p>
                 
               
               
@@ -293,7 +468,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Niblack%20Binarization/" title="Niblack Binarization" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -302,19 +477,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Tips & Tricks
+                Niblack Binarization
               </div>
             </div>
           </a>
         
         
-          <a href="../CV/" title="CV" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../CUDA%20Programming/" title="CUDA" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                CV
+                CUDA
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

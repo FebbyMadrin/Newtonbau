@@ -16,7 +16,7 @@
     
     
       
-        <title>About - Febby@Newtonbau</title>
+        <title>Setup & Troubleshoot - Febby@Newtonbau</title>
       
     
     
@@ -49,6 +49,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#problem-1-libegl-mecha0-unmet-dependencies-error" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              About
+              Setup & Troubleshoot
             
           </span>
         </div>
@@ -205,11 +210,52 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Setup%20and%20Troubleshoots/" title="Setup & Troubleshoot" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Setup & Troubleshoot
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Setup & Troubleshoot" class="md-nav__link md-nav__link--active">
       Setup & Troubleshoot
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-1-libegl-mecha0-unmet-dependencies-error" class="md-nav__link">
+    Problem 1: Libegl-mecha0 , unmet dependencies error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-2-opencv_contrib-installation" class="md-nav__link">
+    Problem 2: opencv_contrib installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -229,18 +275,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="About" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../about/" title="About" class="md-nav__link">
       About
     </a>
-    
   </li>
 
     
@@ -263,6 +302,41 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-1-libegl-mecha0-unmet-dependencies-error" class="md-nav__link">
+    Problem 1: Libegl-mecha0 , unmet dependencies error
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problem-2-opencv_contrib-installation" class="md-nav__link">
+    Problem 2: opencv_contrib installation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -272,9 +346,100 @@
                   
                 
                 
-                  <h1>About</h1>
+                  <h1>Setup & Troubleshoot</h1>
                 
-                
+                <h2 id="problem-1-libegl-mecha0-unmet-dependencies-error">Problem 1: Libegl-mecha0 , unmet dependencies error</h2>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>-desktop:~ sudo apt-get install libegl-mesa0 Reading package lists... Done Building dependency tree Reading state information... Done libegl-mesa0 is already the newest version <span class="o">(</span><span class="m">19</span>.2.8-0ubuntu0~18.04.3<span class="o">)</span>. libegl-mesa0 <span class="nb">set</span> to manually installed. You might want to run <span class="s1">&#39;apt --fix-broken install&#39;</span> to correct these. The following packages have unmet dependencies: libegl1:armhf : Depends: libegl-mesa0:armhf but it is not going to be installed E: Unmet dependencies. Try <span class="s1">&#39;apt --fix-broken install&#39;</span> with no packages <span class="o">(</span>or specify a solution<span class="o">)</span>. -desktop:~ sudo apt-get install nano
+Reading package lists? Done
+Building dependency tree
+Reading state information? Done
+You might want to run ?apt --fix-broken install? to correct these.
+The following packages have unmet dependencies:
+libegl1:armhf : Depends: libegl-mesa0:armhf but it is not going to be installed
+E: Unmet dependencies. Try ?apt --fix-broken install? with no packages <span class="o">(</span>or specify a solution<span class="o">)</span>.
+
+-desktop:~$ sudo apt --fix-broken install
+Reading package lists? Done
+Building dependency tree
+Reading state information? Done
+Correcting dependencies? Done
+The following packages were automatically installed and are no longer required:
+iio-sensor-proxy:armhf libavahi-glib1:armhf libmbim-glib4
+libmbim-glib4:armhf libmbim-proxy libmm-glib0:armhf
+libpolkit-gobject-1-0:armhf libqmi-glib5 libqmi-glib5:armhf libqmi-proxy
+modemmanager:armhf usb-modeswitch usb-modeswitch-data
+Use ?sudo apt autoremove? to remove them.
+The following additional packages will be installed:
+libegl-mesa0:armhf
+The following NEW packages will be installed:
+libegl-mesa0:armhf
+<span class="m">0</span> upgraded, <span class="m">1</span> newly installed, <span class="m">0</span> to remove and <span class="m">13</span> not upgraded.
+<span class="m">183</span> not fully installed or removed.
+Need to get <span class="m">0</span> B/76.6 kB of archives.
+After this operation, <span class="m">240</span> kB of additional disk space will be used.
+Do you want to <span class="k">continue</span>? <span class="o">[</span>Y/n<span class="o">]</span> Y
+debconf: delaying package configuration, since apt-utils is not installed
+<span class="o">(</span>Reading database ? <span class="m">138736</span> files and directories currently installed.<span class="o">)</span>
+Preparing to unpack ?/libegl-mesa0_19.2.8-0ubuntu0~18.04.3_armhf.deb ?
+Unpacking libegl-mesa0:armhf <span class="o">(</span><span class="m">19</span>.2.8-0ubuntu0~18.04.3<span class="o">)</span> ?
+dpkg: error processing archive /var/cache/apt/archives/libegl-mesa0_19.2.8-0ubuntu0~18.04.3_armhf.deb <span class="o">(</span>?unpack<span class="o">)</span>:
+trying to overwrite shared ?/usr/share/glvnd/egl_vendor.d/50_mesa.json?, which is different from other instances of package libegl-mesa0:armhf
+Errors were encountered <span class="k">while</span> processing:
+/var/cache/apt/archives/libegl-mesa0_19.2.8-0ubuntu0~18.04.3_armhf.deb
+E: Sub-process /usr/bin/dpkg returned an error code <span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>solution :</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>-desktop:/usr/share/glvnd/egl_vendor.d$ sudo mv 50_mesa.json 50_mesa-old.json
+<span class="k">then</span> ran fix install
+-desktop:/usr/share/glvnd/egl_vendor.d$ sudo apt ? fix-broken install
+<span class="o">]</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>https://medium.com/@hmurari/how-to-install-teamviewer-on-a-jetson-nano-38080f87f039</p>
+<h2 id="problem-2-opencv_contrib-installation">Problem 2: opencv_contrib installation</h2>
                 
               
               
@@ -293,7 +458,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../OpenCV%20Programming/" title="OpenCV" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -302,19 +467,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Tips & Tricks
+                OpenCV
               </div>
             </div>
           </a>
         
         
-          <a href="../CV/" title="CV" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                CV
+                Tips & Tricks
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
