@@ -163,10 +163,110 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="Setting up the Jetson Nano" class="md-nav__link">
+      Setting up the Jetson Nano
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Image Classification" class="md-nav__link">
+      Image Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../imageregression/" title="Image Regression" class="md-nav__link">
+      Image Regression
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Example Project
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Example Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Example Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../binarization1/" title="Binarization" class="md-nav__link">
+      Binarization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../Niblack%20Binarization/" title="Niblack Binarization" class="md-nav__link">
       Niblack Binarization
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -178,6 +278,18 @@
   <li class="md-nav__item">
     <a href="../NVIDIA%20Courses/" title="Deep Learning Tutorial" class="md-nav__link">
       Deep Learning Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../_______________/" title="___________________" class="md-nav__link">
+      ___________________
     </a>
   </li>
 
@@ -323,22 +435,36 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../about/" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
-
+  <li class="md-nav__item md-nav__item--nested">
     
-      
-      
-      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      About
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon"></span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
 
 
   <li class="md-nav__item">
     <a href="../CV/" title="CV" class="md-nav__link">
       CV
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -602,16 +728,11 @@ $ make -j5
 <li>Update the README.md file under the modules folder. Here you add your model with a single line description.</li>
 <li>Add a README.md inside your own module folder. This README explains which functionality (separate functions) is available, links to the corresponding samples and explains in somewhat more detail what the module is expected to do. If any extra requirements are needed to build the module without problems, add them here also.</li>
 </ol>
-<p>-D OPENCV_GENERATE_PKGCONFIG=YES</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>sudo ldconfig -v
-</code></pre></div>
-</td></tr></table>
-
-<p>sudo mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so</p>
 <p>daripada memakai CMAke, meiding pakai c++</p>
 <p>contohnya pada pemakaaain</p>
 <p>g++ opencv_version.cpp $(pkg-config --cflags --libs opencv4) -o show_version</p>
 <p>g++ niblack_thresholding.cpp.o $(pkg-config --cflags --libs opencv4) -o show_version -lopencv_ximgproc</p>
+<p>cap.set(cv2.CAP_PROP_FPS, 30) </p>
                 
               
               
@@ -697,12 +818,14 @@ $ make -j5
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.tabs'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
+      
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

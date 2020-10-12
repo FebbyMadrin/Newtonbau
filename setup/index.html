@@ -1,0 +1,1444 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>Setting up the Jetson Nano - Febby@Newtonbau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.077507d7.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-and-download" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Febby@Newtonbau" class="md-header-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Febby@Newtonbau
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Setting up the Jetson Nano
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Febby@Newtonbau" class="md-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Febby@Newtonbau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Setting up the Jetson Nano
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Setting up the Jetson Nano" class="md-nav__link md-nav__link--active">
+      Setting up the Jetson Nano
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-and-download" class="md-nav__link">
+    Introduction And Download
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction And Download">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#included-in-the-box" class="md-nav__link">
+    Included In The Box
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-for-setup" class="md-nav__link">
+    Prepare For Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare For Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items-for-getting-started" class="md-nav__link">
+    Items For Getting Started
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-image-to-the-microsd-card" class="md-nav__link">
+    Write Image To The MicroSD Card
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-and-first-boot" class="md-nav__link">
+    Setup And First Boot
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup And First Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headless-device-mode" class="md-nav__link">
+    Headless Device Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-into-the-jupyterlab-server" class="md-nav__link">
+    Logging Into The JupyterLab Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headless-device-mode-setup-for-jetson-nano-demonstration" class="md-nav__link">
+    Headless Device Mode Setup For Jetson Nano Demonstration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-setup" class="md-nav__link">
+    Camera Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-the-logitech-c270-webcam-recommended-configuration" class="md-nav__link">
+    Connecting The Logitech C270 Webcam (Recommended Configuration)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternate-configuration-raspberry-pi-v2-camera" class="md-nav__link">
+    (Alternate Configuration) Raspberry Pi V2 Camera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-cameras" class="md-nav__link">
+    Other Cameras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-camera-connection-demonstration" class="md-nav__link">
+    Raspberry Pi Camera Connection Demonstration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting_1" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_4" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-camera" class="md-nav__link">
+    Hello Camera
+  </a>
+  
+    <nav class="md-nav" aria-label="Hello Camera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boot-with-camera-attached" class="md-nav__link">
+    Boot With Camera Attached
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-hello-camera-notebook" class="md-nav__link">
+    Open The Hello Camera Notebook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_5" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterlab" class="md-nav__link">
+    JupyterLab
+  </a>
+  
+    <nav class="md-nav" aria-label="JupyterLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyterlab-interface" class="md-nav__link">
+    JupyterLab Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Image Classification" class="md-nav__link">
+      Image Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../imageregression/" title="Image Regression" class="md-nav__link">
+      Image Regression
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Example Project
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Example Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Example Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../binarization1/" title="Binarization" class="md-nav__link">
+      Binarization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Niblack%20Binarization/" title="Niblack Binarization" class="md-nav__link">
+      Niblack Binarization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Deep Learning Tutorial" class="md-nav__link">
+      Deep Learning Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../_______________/" title="___________________" class="md-nav__link">
+      ___________________
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CUDA%20Programming/" title="CUDA" class="md-nav__link">
+      CUDA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../OpenCV%20Programming/" title="OpenCV" class="md-nav__link">
+      OpenCV
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Setup%20and%20Troubleshoots/" title="Setup & Troubleshoot" class="md-nav__link">
+      Setup & Troubleshoot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-nav__link">
+      Tips & Tricks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      About
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon"></span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CV/" title="CV" class="md-nav__link">
+      CV
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-and-download" class="md-nav__link">
+    Introduction And Download
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction And Download">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#included-in-the-box" class="md-nav__link">
+    Included In The Box
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-for-setup" class="md-nav__link">
+    Prepare For Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare For Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#items-for-getting-started" class="md-nav__link">
+    Items For Getting Started
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-image-to-the-microsd-card" class="md-nav__link">
+    Write Image To The MicroSD Card
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-and-first-boot" class="md-nav__link">
+    Setup And First Boot
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup And First Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headless-device-mode" class="md-nav__link">
+    Headless Device Mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-into-the-jupyterlab-server" class="md-nav__link">
+    Logging Into The JupyterLab Server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#headless-device-mode-setup-for-jetson-nano-demonstration" class="md-nav__link">
+    Headless Device Mode Setup For Jetson Nano Demonstration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-setup" class="md-nav__link">
+    Camera Setup
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-the-logitech-c270-webcam-recommended-configuration" class="md-nav__link">
+    Connecting The Logitech C270 Webcam (Recommended Configuration)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternate-configuration-raspberry-pi-v2-camera" class="md-nav__link">
+    (Alternate Configuration) Raspberry Pi V2 Camera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-cameras" class="md-nav__link">
+    Other Cameras
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-camera-connection-demonstration" class="md-nav__link">
+    Raspberry Pi Camera Connection Demonstration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting_1" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_4" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hello-camera" class="md-nav__link">
+    Hello Camera
+  </a>
+  
+    <nav class="md-nav" aria-label="Hello Camera">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boot-with-camera-attached" class="md-nav__link">
+    Boot With Camera Attached
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-hello-camera-notebook" class="md-nav__link">
+    Open The Hello Camera Notebook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_5" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyterlab" class="md-nav__link">
+    JupyterLab
+  </a>
+  
+    <nav class="md-nav" aria-label="JupyterLab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jupyterlab-interface" class="md-nav__link">
+    JupyterLab Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Setting up the Jetson Nano</h1>
+                
+                <h2 id="introduction-and-download">Introduction And Download</h2>
+<p>The  NVIDIA® Jetson Nano™ Developer Kit is a small AI computer for makers, learners, and developers. After following along with this brief guide, you’ll be ready to start building practical AI applications, cool AI robots, and more.</p>
+<div class="admonition download">
+<p class="admonition-title">Download</p>
+<p>Initially, a computer with Internet connection and the ability to flash your microSD card is  also required. Downloading the image may take a considerable amount of time, depending on your Internet speed. We recommend that you begin downloading the NVIDIA DLI AI Jetson Nano SD Card Image v1.1.1 immediately so that it can work in the background while you explore the rest of the setup or course information.</p>
+</div>
+<p><img alt="" src="../img/setup.png" /></p>
+<h3 id="included-in-the-box">Included In The Box</h3>
+<p>Your Jetson Nano Developer Kit box includes:</p>
+<ul>
+<li>Jetson Nano Developer Kit</li>
+<li>Small paper card with quick start and support information</li>
+<li>Folded paper stand</li>
+</ul>
+<p>For This Course, You’ll Also Need:</p>
+<ul>
+<li>microSD Memory Card (32GB UHS-I minimum)</li>
+<li>5V 4A Power Supply with 2.1mm DC barrel connector</li>
+<li>2-pin Jumper</li>
+<li>Compatible camera:</li>
+<li>Logitech C270 USB Webcam</li>
+<li>USB cable (Micro-B to Type-A)</li>
+</ul>
+<h2 id="-">----</h2>
+<hr />
+<h2 id="prepare-for-setup">Prepare For Setup</h2>
+<h3 id="items-for-getting-started">Items For Getting Started</h3>
+<p><strong>MicroSD Card</strong></p>
+<p>The Jetson Nano Developer Kit uses a microSD card as a boot device and for main storage. It’s important to have a card that’s fast and large enough for your projects; the minimum recommended for this course is a 32GB UHS-I card.</p>
+<p>See the instructions in the "Write Image to the microSD Card" lesson that follows to flash your microSD card according to the type of computer you are using: Windows, Mac, or Linux.</p>
+<p><strong>5V 4A Power Supply With 2.1mm DC Barrel Connector</strong></p>
+<p>For this course, the 5V 4A DC barrel jack power supply is required. Although it is possible to power the Jetson Nano with a smaller microUSB supply, this is not robust enough for the high GPU compute load we require for our projects. In addition, you will need the microUSB port available as a direct connection to your computer for this course.</p>
+<p>The barrel jack must be 5.5mm OD x 2.1mm ID x 9.5mm length, center-positive. As an example of a good power supply, NVIDIA has validated Adafruit’s 5V 4A (4000mA) switching power supply - UL Listed.</p>
+<p><strong>2-Pin Jumper</strong></p>
+<p>To specify use of the barrel-type power supply on the Jetson Nano Developer Kit, a 2-pin jumper is required. This is an inexpensive item available at many outlets.</p>
+<p><strong>Logitech C270 USB Webcam</strong></p>
+<p>You'll need a camera to capture images in the course projects. As an example of a compatible camera, NVIDIA has verified that the Logitech C270 USB Webcam works with these projects. The ability to position the camera easily for capturing images hands-free makes this a great choice. Some other USB webcams may also work with the projects. If you already have one on hand, you could test it as an alternative.</p>
+<p><strong>USB Cable (Micro-B To Type-A)</strong></p>
+<p>You'll also need a Micro USB to USB-A cable to directly connect your computer to the Jetson Nano Developer Kit's Micro USB port. The cable must be capable of data transfers, rather than only designed to power a device. This is a common cable available at many outlets if you don't already have one on hand.</p>
+<p>The complete hardware package is also available from Sparkfun either with the Jetson Nano included or without the Jetson Nano included.</p>
+<h2 id="-_1">----</h2>
+<hr />
+<h2 id="write-image-to-the-microsd-card">Write Image To The MicroSD Card</h2>
+<p>To prepare your microSD card, you’ll need a computer with Internet connection and the ability to read and write SD cards, either via a built-in SD card slot or adapter.</p>
+<ol>
+<li>If you have not already done so, download the DLI AI Jetson Nano SD Card Image to flash from the Introduction and Download page, and note where it was saved on the computer.</li>
+<li>Write the image to your microSD card by following the instructions below according to the type of computer you are using: Windows, Mac, or Linux.</li>
+</ol>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">INSTRUCTIONS FOR WINDOWS</label><div class="tabbed-content">
+<p>After your microSD card is ready, proceed to set up your developer kit.</p>
+<p>Format your microSD card using SD Memory Card Formatter from the SD Association.</p>
+<p><figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Formatter.png'>
+<figcaption></figcaption>
+</figure></p>
+<ol>
+<li>Download, install, and launch SD Memory Card Formatter for Windows.</li>
+<li>Select card drive</li>
+<li>Select “Quick format”</li>
+<li>Leave “Volume label” blank</li>
+<li>Click “Format” to start formatting, and “Yes” on the warning dialog</li>
+</ol>
+<p>Use Etcher to write the Jetson Nano Developer Kit SD Card Image to your microSD card</p>
+<ol>
+<li>Download, install, and launch Etcher.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Click “Select image” and choose the zipped image file downloaded earlier.</li>
+<li>
+<p>Insert your microSD card if not already inserted.
+  Click Cancel (per  this explanation) if Windows prompts you with a dialog like this:</p>
+</li>
+<li>
+<p>Click “Select drive” and choose the correct device.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Cancel.png'>
+<figcaption></figcaption>
+</figure></p>
+</li>
+<li>
+<p>Click “Flash!” It will take Etcher about 10 minutes to write and validate the image if    your microSD card is connected via USB3.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Select_Drive.png'>
+<figcaption></figcaption>
+</figure></p>
+</li>
+<li>After Etcher finishes, Windows may let you know it doesn’t know how to read the SD Card.  Just click Cancel and remove the microSD card.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Prompt.png'>
+<figcaption></figcaption>
+</figure></li>
+</ol>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">INSTRUCTIONS FOR MAC</label><div class="tabbed-content">
+<p>You can either write the SD card image using a graphical program like Etcher, or via command line.</p>
+<p><strong>Etcher Instructions</strong></p>
+<ol>
+<li>Do not insert your microSD card yet.</li>
+<li>Download, install, and launch Etcher.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Etcher.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Click “Select image” and choose the zipped image file downloaded earlier.</li>
+<li>Insert your microSD card. Click Ignore if your Mac shows this window:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>If you have no other external drives attached, Etcher will automatically select the microSD     card as target device. Otherwise, click “Select drive” and choose the correct device.</li>
+<li>Click “Flash!” Your Mac may prompt for your username and password before it allows Etcher to     proceed
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Etcher_permission.png'>
+<figcaption></figcaption>
+</figure>
+It will take Etcher about 10 minutes to write and validate the image if your microSD card is     connected via USB3.</li>
+<li>After Etcher finishes, your Mac may let you know it doesn’t know how to read the SD Card. Just click Eject and remove the microSD card.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<figcaption></figcaption>
+</figure></li>
+</ol>
+<p><strong>Command Line Instructions</strong></p>
+<ol>
+<li>Do not insert your microSD card yet. Waiting will help you discover correct disk device name in steps below.</li>
+<li>Open the Terminal app:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_app.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Use this command to list any external disk devices already attached to your Mac: 
+<br><code>diskutil list external | fgrep '/dev/disk'</code><br>
+For example, if you already have a USB drive attached to your Mac, the result will look similar to this:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_disk_already_attached.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Insert your microSD card. Click Ignore if your Mac shows this window:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Use the same command as before to list external disk devices. The newly listed disk device is the microSD card (/dev/disk2 in this example):
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_list_disks.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Use this command to remove any existing partitions from the microSD card, ensuring MacOS will let you write to it. BE VERY CAREFUL to specify the correct disk device. 
+<br><code>bash
+sudo diskutil partitionDisk /dev/disk&lt;n&gt; 1 GPT "Free Space" "%noformat%" 100%</code><br> 
+For example:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_partitions.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>Use this command to write the zipped SD card image to the microSD card. Note the use of /dev/rdisk instead of /dev/disk: 
+<br><code>bash
+/usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/rdisk&lt;n&gt;bs=1m</code><br>
+For example:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_write_zipped_SD_card.png'>
+<figcaption></figcaption>
+</figure></li>
+<li>There will be no indication of progress (unless you signal with CTRL-t). When the dd command finishes, your Mac will let you know it cannot read the microSD card. Just click Eject:</li>
+</ol>
+<p><figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<figcaption></figcaption>
+</figure> </p>
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">INSTRUCTIONS FOR LINUX</label><div class="tabbed-content">
+<p>You can either write the SD card image using a graphical program like Etcher, or via command line.</p>
+<p><strong>Etcher Instructions</strong></p>
+<ol>
+<li>
+<p>Download, install, and launch Etcher.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher.png'>
+<figcaption></figcaption>
+</figure> </p>
+</li>
+<li>
+<p>Click “Select image” and choose the zipped image file downloaded earlier.</p>
+</li>
+<li>Insert your microSD card. If you have no other external drives attached, Etcher will     automatically select the microSD card as target device. Otherwise, click “Change” and choose the     correct device.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Select_Drive.png'>
+<figcaption></figcaption>
+</figure> </li>
+<li>Click “Flash!” Your OS may prompt for your username and password before it allows Etcher to proceed.
+It will take Etcher 10-15 minutes to write and validate the image if your microSD card is     connected via USB3.
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Password.png'>
+<figcaption></figcaption>
+</figure> </li>
+<li>
+<p>After Etcher finishes, eject the SD Card using Files application:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Files_App.png'>
+<figcaption></figcaption>
+</figure> </p>
+</li>
+<li>
+<p>Physically remove microSD card from the computer.</p>
+</li>
+</ol>
+<p><strong>Command Line Instructions</strong></p>
+<ol>
+<li>Open the Terminal application by pressing <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-delete">Del</kbd></span></li>
+<li>Insert your microSD card, then use a command like this to show which disk device was assigned to it:
+<br><code>bash
+dmesg | tail | awk '$3 == "sd" {print}'</code><br>
+In this example, we can see the 16GB microSD card was assigned /dev/sda:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Assign.png'>
+<figcaption></figcaption>
+</figure> </li>
+<li>Use this command to write the zipped SD card image to the microSD card:
+<br><code>bash
+/usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/sd&lt;x&gt;   bs=1M status=progress</code><br>
+For example:
+<figure>
+<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Write.png'>
+<figcaption></figcaption>
+</figure> 
+When the dd command finishes, eject the disk device from the command line:
+<br><code>bash
+sudo eject /dev/sd&lt;x&gt;</code><br></li>
+<li>Physically remove microSD card from the computer.</li>
+</ol>
+</div>
+</div>
+<h2 id="-_2">----</h2>
+<hr />
+<h2 id="setup-and-first-boot">Setup And First Boot</h2>
+<h3 id="headless-device-mode">Headless Device Mode</h3>
+<p>For this course, we are running the Jetson Nano Developer Kit in a "headless" configuration. That means you do not hook up a monitor directly to the Jetson Nano Developer Kit. This method conserves memory resources on the Jetson Nano and has the added benefit of eliminating the requirement for extra hardware, i.e. a monitor, keyboard, and mouse.</p>
+<p>In addition, we will further simplify the configuration by using "USB Device Mode". In this mode, your Jetson Nano Developer Kit connects directly to your computer through a USB cable. This eliminates the need for a network connection on the Jetson Nano, as well as the need to determine the IP address on your network. It is always 192.168.55.1:8888 in this mode.</p>
+<p>In the steps that follow, you will boot the Jetson Nano in the minimum configuration (without a camera) to make sure it boots correctly from the microSD card you flashed with the DLI course image.
+    <figure>
+    <img src='/img/setup/headless_dev-mode_animation.gif'>
+    <figcaption></figcaption>
+    </figure></p>
+<h3 id="setup-steps">Setup Steps</h3>
+<ol>
+<li>Unfold the paper stand and place inside the developer kit box.</li>
+<li>Set the developer kit on top of the paper stand.</li>
+<li>Insert the microSD card (with system image already written to it) into the slot on the underside of the Jetson Nano module.
+    <figure>
+    <img src='/img/setup/jetson-nano-porg-3qrt-bottom-r7.png'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Insert the 2-pin jumper across the 2-pin connector, J48, located next to the MIPI CSI camera connector. This enables the DC barrel power supply.
+    <figure>
+    <img src='/img/setup/eea60bd8b76d5bee61801abff56226c9.png'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Connect your DC barrel jack power supply (5V/4A). The Jetson Nano Developer Kit will power on and boot automatically.</li>
+<li>A green LED next to the Micro-USB connector will light as soon as the developer kit powers on. Wait about 30 seconds. Then connect the USB cable from the Micro USB port on the Jetson Nano Developer Kit to the USB port on your computer.</li>
+</ol>
+<h3 id="logging-into-the-jupyterlab-server">Logging Into The JupyterLab Server</h3>
+<ol>
+<li>Open the following link address : 192.168.55.1:8888
+The JupyterLab server running on the Jetson Nano will open up with a login prompt the first time.</li>
+<li>Enter the password: dlinano
+You will see this screen. Congratulations!
+    <figure>
+    <img src='/img/setup/jup_launch_home.png'>
+    <figcaption></figcaption>
+    </figure></li>
+</ol>
+<h3 id="headless-device-mode-setup-for-jetson-nano-demonstration">Headless Device Mode Setup For Jetson Nano Demonstration</h3>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<ul>
+<li>The LED does not light up when the DC barrel jack power supply is connected.<ul>
+<li>Check to be sure you have shorted the two pins on the J48 header with a jumper.</li>
+</ul>
+</li>
+<li>The LED lights up, but I cannot access the JupyterLab server from my browser.<ul>
+<li>Try a different browser.</li>
+</ul>
+</li>
+<li>I cannot access the JupyterLab server from any browser.<ul>
+<li>Check your computer to see if any new USB devices are recognized when plugging in the USB cable to your computer</li>
+<li>If on Windows, check ?Device Manager? to see if any new device was added.</li>
+</ul>
+</li>
+<li>My computer does not recognize Jetson Nano when connected.<ul>
+<li>Check your USB cable to see if it is enabled for data transfer.</li>
+<li>You can test it by connecting the Micro-B end of the USB cable to some other USB peripheral such as tablet, Kindle, or other device that communicates over a USB Micro-B port.</li>
+</ul>
+</li>
+<li>My USB cable seems good, but my computer does not recognize Jetson Nano.<ul>
+<li>Check if your Jetson Nano Developer Kit is properly booting by connecting it to a TV through an HDMI cable. See if the TV displays the NVIDIA logo when booted, and eventually displays the Ubuntu desktop.</li>
+</ul>
+</li>
+<li>My Jetson Nano does not show anything on the TV when booting with the TV attached.<ul>
+<li>Check if you have inserted your microSD card all the way into the microSD card slot. You should hear a small click sound.</li>
+</ul>
+</li>
+<li>The microSD card is fully inserted, but my Jetson Nano does not boot properly.<ul>
+<li>Go back to ?Write Image To The MicroSD Card? to reflash your SD card.</li>
+</ul>
+</li>
+</ul>
+<h2 id="-_3">----</h2>
+<hr />
+<h2 id="camera-setup">Camera Setup</h2>
+<p>Now that you've verified that your system can boot to your Jetson Nano Developer Kit with the microSD card, let's add the camera! Power down the Jetson Nano Developer Kit by unplugging the power. Then connect the camera using the instructions below.</p>
+<h3 id="connecting-the-logitech-c270-webcam-recommended-configuration">Connecting The Logitech C270 Webcam (Recommended Configuration)</h3>
+<p>This is very straightforward. Just plug in the USB connector into any of the Jetson Nano Developer Kit USB ports.
+    <figure>
+    <img src='/img/setup/usbcam_setup_sm.jpg'>
+    <figcaption></figcaption>
+    </figure></p>
+<h3 id="alternate-configuration-raspberry-pi-v2-camera">(Alternate Configuration) Raspberry Pi V2 Camera</h3>
+<ol>
+<li>If you want to try this lab with a RasBerry Pi v2 Camera, you will need to connect to the MIPI CSI port. Begin by unlatching the MIPI CSI connector. This loosens the "grip" of the connector by just a small amount.
+    <figure>
+    <img src='/img/setup/unlatch_csi_sm.jpg'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Insert the ribbon cable of the camera so that the metal side faces into the Nano board.
+    <figure>
+    <img src='/img/setup/pi_cam_insert_sm.jpg'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Latch the connector with a gentle push downward on the sides of the plastic. The ribbon cable should be securely held by the connector
+    <figure>
+    <img src='/img/setup/pi_cam_latch_sm.jpg'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Remove the protective film from the lens of the camera.
+    <figure>
+    <img src='/img/setup/camera_film_remove.gif'>
+    <figcaption></figcaption>
+    </figure></li>
+</ol>
+<h3 id="other-cameras">Other Cameras</h3>
+<p>Other cameras may also work with your Jetson Nano Developer Kit. You'll need to test them to find out. If you have another camera on hand, such as a USB webcam, feel free to give it a try using the "Hello Camera" test notebooks in the next lesson.</p>
+<h3 id="raspberry-pi-camera-connection-demonstration">Raspberry Pi Camera Connection Demonstration</h3>
+<h3 id="troubleshooting_1">Troubleshooting</h3>
+<ul>
+<li>The camera and JupyterLab appear "frozen"<ul>
+<li>If using a Raspberry Pi Camera Module v2, check to ensure it does not touch any of the metal parts (headers, pads, t erminals, ports) of the Jetson Nano Developer Kit board as this may cause an electrical short.</li>
+</ul>
+</li>
+<li>JupyterLab is working, but I cannot execute a cell to run my camera. I get an error or it "hangs"<ul>
+<li>The camera may have previously been assigned but not released.<ol>
+<li>Shutdown the kernel for the notebook using the pulldown menu at the top of JupyterLab.</li>
+<li>Open a terminal window from the Launch page (if no Launch page, click the '+' icon)</li>
+<li>enter sudo systemctl restart nvargus-daemon in the terminal window. You will be prompted for the password, which is dlinano</li>
+<li>Restart your notebook</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="-_4">----</h2>
+<hr />
+<h2 id="hello-camera">Hello Camera</h2>
+<p>Now with the camera attached, boot the system using headless Device Mode as you did before.</p>
+<h3 id="boot-with-camera-attached">Boot With Camera Attached</h3>
+<ol>
+<li>Disconnect the USB cable from the computer if it is still attached</li>
+<li>Connect your DC barrel jack power supply (5V/4A). The Jetson Nano Developer Kit will power on and boot automatically.</li>
+<li>Wait about 30 seconds. Then connect the USB cable from the Micro USB port on the Jetson Nano Developer Kit to the USB port on your computer.</li>
+<li>Open a browser window on your computer and enter the address to the Jetson Nano JupyterLab server: 192.168.55.1:8888
+The JupyterLab server running on the Jetson Nano will open up.</li>
+</ol>
+<h3 id="open-the-hello-camera-notebook">Open The Hello Camera Notebook</h3>
+<p>The JupyterLab interface is a dashboard that provides access to the Jupyter interactive notebooks and the operating system for Jetson Nano. The first view you'll see includes a directory tree on the left and a "Launcher" page on the right. To open the "Hello Camera" notebook:</p>
+<ol>
+<li>Navigate to the nvdli-nano folder with a double-click
+    <figure>
+    <img src='/img/setup/jup_nvdli_launch_select.png'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Navigate to the hello_camera folder in the same way
+    <figure>
+    <img src='/img/setup/hello_camera_select.png'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>If you are testing a USB webcam camera such as the Logitech C270, double-click the usb_camera.ipynb notebook to open it. If you are testing a CSI camera, double-click the csi_camera.ipynb instead.
+    <figure>
+    <img src='/img/setup/usb_nb_select.png'>
+    <figcaption></figcaption>
+    </figure></li>
+<li>Find out more about JupyterLab in the next section. If you are already familiar with JupyterLab features, go ahead and jump right in! When you're satisfied that your camera works correctly, return here for project instructions.
+    <figure>
+    <img src='/img/setup/opened_notebook.png'>
+    <figcaption></figcaption>
+    </figure></li>
+</ol>
+<h2 id="-_5">----</h2>
+<hr />
+<h2 id="jupyterlab">JupyterLab</h2>
+<p>For this course, your Jetson Nano has been configured to run a JupyterLab server on port 8888. When you boot the system and open a browser to the Jetson Nano IP address at that port, you see the JupyterLab interface.</p>
+<h3 id="jupyterlab-interface">JupyterLab Interface</h3>
+<p>The JupyterLab Interface is a dashboard that provides access to interactive iPython notebooks, as well as the folder structure for your Jetson Nano and a terminal window into the Ubuntu operating system. The first view you'll see includes a menu bar at the top, a directory tree in the left sidebar, and a main work area that is initially open to the "Launcher" page.
+    <figure>
+    <img src='/img/setup/jupyter_legend.png'>
+    <figcaption></figcaption>
+    </figure>
+Complete details for all the features and menu actions available can be found in the JupyterLab Interface document. Here are some key capabilities that will be especially useful in this course:</p>
+<p><strong>File browser:</strong></p>
+<p>The file browser in the left sidebar allows navigation through the Jetson Nano file structure. Double-clicking on a notebook or file opens it in the main work area.</p>
+<p><strong>iPython notebooks:</strong></p>
+<p>The interactive notebooks used in this course have an ".ipynb" file extension. When a notebook is double-clicked from the file browser, it will open in the main work area and its process will start. The notebooks consist of text and code "cells". When a code cell is "run", by clicking the run button at the top of the notebook or the keyboard shortcut [CTRL][ENTER], the block of code in the cell is executed and the output, if there is any, appears below the cell in the notebook. To the left of each executable cell there is an "execution count" or "prompt number" in brackets. If the cell takes more than a few seconds to run, you will see an asterisk mark there, indicating that the cell has not finished its execution. Once processing of that cell is finished, a number will show in the brackets.
+    <figure>
+    <img src='/img/setup/run_jupyter_cells.png'>
+    <figcaption></figcaption>
+    </figure></p>
+<p><strong>Kernel operations:</strong></p>
+<p>The kernel for each running notebook is a separate process that runs the user code. The kernel starts automatically when the notebook is opened from the file browser. The kernel menu on the main menu bar includes commands to shutdown or restart the kernel, which you will need to use periodically. After a kernel shutdown, no code cells can be executed. When a kernel is restarted, all memory is lost regarding imported packages, variable assignments, and so on.
+    <figure>
+    <img src='/img/setup/JL_Shutdown-kernel_720p.gif'>
+    <figcaption></figcaption>
+    </figure></p>
+<p><strong>Cell tabs:</strong></p>
+<p>You can move any cell to new window tabs in the main work area by right-clicking the cell and selecting "Create New View for Output". This way, you can continue to scroll down the JupyterLab notebook while still watching a particular cell. This is especially helpful in the cell includes a camera view!
+    <figure>
+    <img src='/img/setup/JL_New-View-For-Output_720p.gif'>
+    <figcaption></figcaption>
+    </figure></p>
+<p><strong>Terminal window:</strong></p>
+<p>You can work directly in a Terminal window on your Jetson Nano Ubuntu OS. From the Launcher page, click the Terminal icon under "Other". To bring up the Launcher page, if it is no longer visible, click the "+" icon at the top of the left sidebar.
+    <figure>
+    <img src='/img/setup/JL_Terminal_720p.gif'>
+    <figcaption></figcaption>
+    </figure></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../NVIDIA%20Courses/" title="Image Classification" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Image Classification
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/febbymadrin/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

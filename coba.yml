@@ -1,0 +1,40 @@
+#    - Home: index.md
+#    - NVIDIA Courses: NVIDIA Courses.md
+#    - Niblack Binarization: Niblack Binarization.md
+#    - ___________________: _______________.md
+#    - CUDA: CUDA Programming.md
+#    - OpenCV: OpenCV Programming.md
+#    - Setup & Troubleshoot: Setup and Troubleshoots.md
+#    - Tips & Tricks: Tips n Tricks.md
+#    - About: about.md
+#    - CV: CV.md
+
+
+site_name: Febby@Newtonbau
+nav:
+    - Home: index.md
+    - Niblack Binarization: Niblack Binarization.md
+    - Deep Learning Tutorial: NVIDIA Courses.md
+    - CUDA: CUDA Programming.md
+    - OpenCV: OpenCV Programming.md
+    - Setup & Troubleshoot: Setup and Troubleshoots.md
+    - Tips & Tricks: Tips n Tricks.md
+    - About: about.md
+    - CV: CV.md
+    - ___________________: _______________.md
+theme:
+  name: material
+
+markdown_extensions:
+  - pymdownx.highlight:
+     linenums: true
+     linenums_style: pymdownx.inline
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/febbymadrin/

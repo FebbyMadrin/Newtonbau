@@ -1,0 +1,698 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.13">
+    
+    
+      
+        <title>Image Regression - Febby@Newtonbau</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.077507d7.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#classification-vs-regression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href=".." title="Febby@Newtonbau" class="md-header-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Febby@Newtonbau
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Image Regression
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Febby@Newtonbau" class="md-nav__button md-logo" aria-label="Febby@Newtonbau">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Febby@Newtonbau
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="Setting up the Jetson Nano" class="md-nav__link">
+      Setting up the Jetson Nano
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Image Classification" class="md-nav__link">
+      Image Classification
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Image Regression
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Image Regression" class="md-nav__link md-nav__link--active">
+      Image Regression
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classification-vs-regression" class="md-nav__link">
+    Classification Vs. Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#face-xy-project" class="md-nav__link">
+    Face XY Project
+  </a>
+  
+    <nav class="md-nav" aria-label="Face XY Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-tool-startup-steps" class="md-nav__link">
+    Interactive Tool Startup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-regression-projects" class="md-nav__link">
+    More Regression Projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Example Project
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Example Project" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Example Project
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../binarization1/" title="Binarization" class="md-nav__link">
+      Binarization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Niblack%20Binarization/" title="Niblack Binarization" class="md-nav__link">
+      Niblack Binarization
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../NVIDIA%20Courses/" title="Deep Learning Tutorial" class="md-nav__link">
+      Deep Learning Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../_______________/" title="___________________" class="md-nav__link">
+      ___________________
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../CUDA%20Programming/" title="CUDA" class="md-nav__link">
+      CUDA
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../OpenCV%20Programming/" title="OpenCV" class="md-nav__link">
+      OpenCV
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Setup%20and%20Troubleshoots/" title="Setup & Troubleshoot" class="md-nav__link">
+      Setup & Troubleshoot
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Tips%20n%20Tricks/" title="Tips & Tricks" class="md-nav__link">
+      Tips & Tricks
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      About
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        <span class="md-nav__icon md-icon"></span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CV/" title="CV" class="md-nav__link">
+      CV
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#classification-vs-regression" class="md-nav__link">
+    Classification Vs. Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    ----
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#face-xy-project" class="md-nav__link">
+    Face XY Project
+  </a>
+  
+    <nav class="md-nav" aria-label="Face XY Project">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interactive-tool-startup-steps" class="md-nav__link">
+    Interactive Tool Startup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-regression-projects" class="md-nav__link">
+    More Regression Projects
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                  <h1>Image Regression</h1>
+                
+                <h2 id="classification-vs-regression">Classification Vs. Regression</h2>
+<p>Unlike Image Classification applications, which map image inputs to discrete outputs (classes), the Image Regression task maps the image input pixels to continuous outputs.</p>
+<p><strong>Continuous Outputs</strong></p>
+<p>In the course regression project, those continuous outputs happen to define the X and Y coordinates of various features on a face, such as a nose. Mapping an image stream to a location for tracking can be used in other applications, such as following a line in mobile robotics. Tracking isn't the only thing a Regression model can do though. The output values could be something quite different such as steering values, or camera movement parameters.</p>
+<p><strong>Changing The Final Layer</strong></p>
+<p>The final layer of the pre-trained ResNet-18 network is a fully connected (fc) layer that has 512 inputs mapped to 1000 output classes, or (512, 1000). Using transfer learning in the Image Classification projects, that last layer was changed to only a few classes, depending on the application. For example, if there are to be 3 classes trained, we change the fc layer to (512, 3). The output includes the final layer of the neural network as a fully connected layer, with 512 inputs mapped to 3 classes.</p>
+<p>In the case of a Regression project predicting coordinates, we want two values for each category, the X and Y values. That means twice as many outputs are required in the fc layer. For example, if there are 3 facial features (nose, left_eye, right_eye), each with both an X and Y output, then 6 outputs are required, or (512, 6) for the fc layer.</p>
+<p>In classification, recall that the softmax function was used to build a probability distribution of the output values. For regression, we want to keep the actual values, because we didn't train for probabilities, but for actual X and Y output values.</p>
+<p><strong>Evaluation</strong></p>
+<p>Classification and Regression also differ in the way they are evaluated. The discrete values of classification can be evaluated based on accuracy, i.e. a calculation of the percentage of "right" answers. In the case of regression, we are interested in getting as close as possible to a correct answer. Therefore, the root mean squared error can be used.</p>
+<h2 id="-">----</h2>
+<hr />
+<h2 id="face-xy-project">Face XY Project</h2>
+<p>The goal of this project is to build an Image Regression project that can predict the X and Y coordinates of a facial feature in a live image.</p>
+<h3 id="interactive-tool-startup-steps">Interactive Tool Startup Steps</h3>
+<p>You will implement the project by collecting your own data using a clickable image display tool, training a model to find the XY coordinates of the feature, and then testing and updating your model as needed using images from the live camera. Since you are collecting two values for each category, the model may require more training and data to get a satisfactory result.</p>
+<p>Be patient! Building your model is an iterative process.</p>
+<p><strong>Step 1: Open The Notebook</strong></p>
+<p>To get started, navigate to the regression folder in your JupyterLab interface and double-click the regression_interactive.ipynb notebook to open it.</p>
+<p><strong>Step 2: Execute All Of The Code Blocks</strong></p>
+<p>The notebook is designed to be reusable for any XY regression task you wish to build. Step through the code blocks and execute them one at a time.</p>
+<ol>
+<li><em>Camera</em> :
+  This block sets the size of the images and starts the camera. If your camera is already active  in this notebook or in another notebook, first shut down the kernel in the active notebook before running this code cell. Make sure that the correct camera type is selected for execution (USB). This cell may take several seconds to execute.</li>
+<li><em>Task</em> : 
+  You get to define your TASK and CATEGORIES parameters here, as well as how many datasets you want to track. For the Face XY Project, this has already been defined for you as the face task with categories of nose, left_eye, and right_eye. Each category for the XY regression tool will require both an X and Y values. Go ahead and execute the cell. Subdirectories for each category are created to store the example images you collect. The file names of the images will contain the XY coordinates that you tag the images with during the data collection step. This cell should only take a few seconds to execute.</li>
+<li><em>Data Collection</em> :
+  You?ll collect images for your categories with a special clickable image widget set up in this cell. As you click the ?nose? or ?eye? in the live feed image, the data image filename is automatically annotated and saved using the X and Y coordinates from the click.</li>
+<li><em>Model</em> :
+  The model is set to the same pre-trained ResNet18 model for this project:
+  <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>model = torchvision.models.resnet18(pretrained=True)
+</code></pre></div>
+</td></tr></table>
+  For more information on available PyTorch pre-trained models, see the PyTorch documentation. In addition to choosing the model, the last layer of the model is modified to accept only the number of classes that we are training for. In the case of the Face XY Project, it is twice the number of categories, since each requires both X and Y coordinates (i.e. nose X, nose Y, left_eye X, right_eye X and right_eye Y).
+  <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>output_dim = 2 * len(dataset.categories)
+model.fc = torch.nn.Linear(512, output_dim)
+</code></pre></div>
+</td></tr></table>
+  This code cell may take several seconds to execute.</li>
+<li><em>Live Execution</em> :
+  This code block sets up threading to run the model in the background so that you can view the live camera feed and visualize the model performance in real time. This cell should only take a few seconds to execute. For this project,a blue circle will overlay the model prediction for the location of the feature selected.</li>
+<li><em>Training and Evaluation</em> :
+  The training code cell sets the hyper-parameters for the model training (number of epochs, batch size, learning rate, momentum) and loads the images for training or evaluation. The regression version is very similar to the simple classification training, though the loss is calculated differently. The mean square error over the X and Y value errors is calculated and used as the loss for backpropagation in training to improve the model. This code cell may take several seconds to execute.</li>
+<li><em>Display the Interactive Tool!</em> :
+  This is the last code cell. All that's left to do is pack all the widgets into one comprehensive tool and display it. This cell may take several seconds to run and should display the full tool for you to work with. There are three image windows. Initially, only the left camera feed is populated. The middle window will display the most recent annotated snapshot image once you start collecting data. The right-most window will display the live prediction view once the model has been trained.</li>
+</ol>
+<p>face_xy_interactive_tool</p>
+<p><strong>Step 3: Collect Data, Train, Test</strong></p>
+<p>Position the camera in front of your face and collect initial data. Point to the target feature with the mouse cursor that matches the category you've selected (such as the nose). Click to collect data. The annotated snapshot you just collected will appear in the middle display box. As you collect each image, vary your head position and pose:</p>
+<ol>
+<li>Add 20 images of your nose with the nose category selected</li>
+<li>Add 20 images of your left eye face with the left_eye category selected</li>
+<li>Add 20 images of your right eye with the right_eye category selected</li>
+<li>Set the number of epochs to 10 and click the train button</li>
+<li>Once the training is complete, try the live view and observe the prediction. A blue circle should appear on the feature selected.</li>
+</ol>
+<p><strong>Step 4: Improve Your Model</strong>
+Use the live inference as a guide to improve your model! The live feed shows the model's prediction. As you move your head, does the target circle correctly follow your nose (or left_eye, right_eye)? If not, then click the correct location and add data. After you've added some data for a new scenario, train the model some more. For example:</p>
+<ul>
+<li>Move the camera so that the face is closer. Is the performance of the predictor still good? If not, try adding some data for each category (10 each) and retrain (5 epochs). Does this help? You can experiment with more data and more training.</li>
+<li>Move the camera to provide a different background. Is the performance of the predictor still good? If not, try adding some data for each category (10 each) and retrain (5 epochs). Does this help? You can experiment with more data and more training.</li>
+<li>Are there any other scenarios you think the model might not perform well? Try them out!</li>
+<li>Can you get a friend to try your model? Does it work the same? You know the drill: more data and training!</li>
+</ul>
+<p><strong>Step 5: Save Your Model</strong>
+When you are satisfied with your model, save it by entering a name in the "model path" box and click "save model".</p>
+<h3 id="more-regression-projects">More Regression Projects</h3>
+<p>To build another project, follow the pattern you did with the Face Project. Save your previous work, modify the TASK and CATEGORIES values, shutdown and restart the notebook, and run all the cells. Then collect, train, and test!</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../NVIDIA%20Courses/" title="Image Classification" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Image Classification
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../binarization1/" title="Binarization" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Binarization
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/febbymadrin/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
