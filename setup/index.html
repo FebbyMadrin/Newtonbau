@@ -964,7 +964,7 @@
 <p>After your microSD card is ready, proceed to set up your developer kit.</p>
 <p>Format your microSD card using SD Memory Card Formatter from the SD Association.</p>
 <p><figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Formatter.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Formatter.png'>
 <figcaption></figcaption>
 </figure></p>
 <ol>
@@ -978,7 +978,7 @@
 <ol>
 <li>Download, install, and launch Etcher.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Windows-Etcher.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Click “Select image” and choose the zipped image file downloaded earlier.</li>
@@ -989,20 +989,20 @@
 <li>
 <p>Click “Select drive” and choose the correct device.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Cancel.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Cancel.png'>
 <figcaption></figcaption>
 </figure></p>
 </li>
 <li>
 <p>Click “Flash!” It will take Etcher about 10 minutes to write and validate the image if    your microSD card is connected via USB3.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Select_Drive.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Windows-Etcher_Select_Drive.png'>
 <figcaption></figcaption>
 </figure></p>
 </li>
 <li>After Etcher finishes, Windows may let you know it doesn’t know how to read the SD Card.  Just click Cancel and remove the microSD card.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Prompt.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Windows-SD_Card_Prompt.png'>
 <figcaption></figcaption>
 </figure></li>
 </ol>
@@ -1014,25 +1014,25 @@
 <li>Do not insert your microSD card yet.</li>
 <li>Download, install, and launch Etcher.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Etcher.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Etcher.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Click “Select image” and choose the zipped image file downloaded earlier.</li>
 <li>Insert your microSD card. Click Ignore if your Mac shows this window:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>If you have no other external drives attached, Etcher will automatically select the microSD     card as target device. Otherwise, click “Select drive” and choose the correct device.</li>
 <li>Click “Flash!” Your Mac may prompt for your username and password before it allows Etcher to     proceed
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Etcher_permission.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Etcher_permission.png'>
 <figcaption></figcaption>
 </figure>
 It will take Etcher about 10 minutes to write and validate the image if your microSD card is     connected via USB3.</li>
 <li>After Etcher finishes, your Mac may let you know it doesn’t know how to read the SD Card. Just click Eject and remove the microSD card.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
 <figcaption></figcaption>
 </figure></li>
 </ol>
@@ -1041,24 +1041,24 @@ It will take Etcher about 10 minutes to write and validate the image if your mic
 <li>Do not insert your microSD card yet. Waiting will help you discover correct disk device name in steps below.</li>
 <li>Open the Terminal app:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_app.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_app.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Use this command to list any external disk devices already attached to your Mac: 
 <br><code>diskutil list external | fgrep '/dev/disk'</code><br>
 For example, if you already have a USB drive attached to your Mac, the result will look similar to this:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_disk_already_attached.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_disk_already_attached.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Insert your microSD card. Click Ignore if your Mac shows this window:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Use the same command as before to list external disk devices. The newly listed disk device is the microSD card (/dev/disk2 in this example):
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_list_disks.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_list_disks.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Use this command to remove any existing partitions from the microSD card, ensuring MacOS will let you write to it. BE VERY CAREFUL to specify the correct disk device. 
@@ -1066,7 +1066,7 @@ For example, if you already have a USB drive attached to your Mac, the result wi
 sudo diskutil partitionDisk /dev/disk&lt;n&gt; 1 GPT "Free Space" "%noformat%" 100%</code><br> 
 For example:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_partitions.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_partitions.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>Use this command to write the zipped SD card image to the microSD card. Note the use of /dev/rdisk instead of /dev/disk: 
@@ -1074,13 +1074,13 @@ For example:
 /usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/rdisk&lt;n&gt;bs=1m</code><br>
 For example:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_write_zipped_SD_card.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Terminal_write_zipped_SD_card.png'>
 <figcaption></figcaption>
 </figure></li>
 <li>There will be no indication of progress (unless you signal with CTRL-t). When the dd command finishes, your Mac will let you know it cannot read the microSD card. Just click Eject:</li>
 </ol>
 <p><figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Mac-Disk_readable.png'>
 <figcaption></figcaption>
 </figure> </p>
 </div>
@@ -1091,7 +1091,7 @@ For example:
 <li>
 <p>Download, install, and launch Etcher.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Etcher.png'>
 <figcaption></figcaption>
 </figure> </p>
 </li>
@@ -1100,19 +1100,19 @@ For example:
 </li>
 <li>Insert your microSD card. If you have no other external drives attached, Etcher will     automatically select the microSD card as target device. Otherwise, click “Change” and choose the     correct device.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Select_Drive.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Select_Drive.png'>
 <figcaption></figcaption>
 </figure> </li>
 <li>Click “Flash!” Your OS may prompt for your username and password before it allows Etcher to proceed.
 It will take Etcher 10-15 minutes to write and validate the image if your microSD card is     connected via USB3.
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Password.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Etcher_Password.png'>
 <figcaption></figcaption>
 </figure> </li>
 <li>
 <p>After Etcher finishes, eject the SD Card using Files application:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Files_App.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Files_App.png'>
 <figcaption></figcaption>
 </figure> </p>
 </li>
@@ -1128,7 +1128,7 @@ It will take Etcher 10-15 minutes to write and validate the image if your microS
 dmesg | tail | awk '$3 == "sd" {print}'</code><br>
 In this example, we can see the 16GB microSD card was assigned /dev/sda:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Assign.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Assign.png'>
 <figcaption></figcaption>
 </figure> </li>
 <li>Use this command to write the zipped SD card image to the microSD card:
@@ -1136,7 +1136,7 @@ In this example, we can see the 16GB microSD card was assigned /dev/sda:
 /usr/bin/unzip -p ~/Downloads/jetson_nano_devkit_sd_card.zip | sudo /bin/dd of=/dev/sd&lt;x&gt;   bs=1M status=progress</code><br>
 For example:
 <figure>
-<img src='/img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Write.png'>
+<img src='../img/setup/Jetson_Nano-Getting_Started-Linux-Terminal_Disk_Write.png'>
 <figcaption></figcaption>
 </figure> 
 When the dd command finishes, eject the disk device from the command line:
@@ -1154,7 +1154,7 @@ sudo eject /dev/sd&lt;x&gt;</code><br></li>
 <p>In addition, we will further simplify the configuration by using "USB Device Mode". In this mode, your Jetson Nano Developer Kit connects directly to your computer through a USB cable. This eliminates the need for a network connection on the Jetson Nano, as well as the need to determine the IP address on your network. It is always 192.168.55.1:8888 in this mode.</p>
 <p>In the steps that follow, you will boot the Jetson Nano in the minimum configuration (without a camera) to make sure it boots correctly from the microSD card you flashed with the DLI course image.
     <figure>
-    <img src='/img/setup/headless_dev-mode_animation.gif'>
+    <img src='../img/setup/headless_dev-mode_animation.gif'>
     <figcaption></figcaption>
     </figure></p>
 <h3 id="setup-steps">Setup Steps</h3>
@@ -1163,12 +1163,12 @@ sudo eject /dev/sd&lt;x&gt;</code><br></li>
 <li>Set the developer kit on top of the paper stand.</li>
 <li>Insert the microSD card (with system image already written to it) into the slot on the underside of the Jetson Nano module.
     <figure>
-    <img src='/img/setup/jetson-nano-porg-3qrt-bottom-r7.png'>
+    <img src='../img/setup/jetson-nano-porg-3qrt-bottom-r7.png'>
     <figcaption></figcaption>
     </figure></li>
 <li>Insert the 2-pin jumper across the 2-pin connector, J48, located next to the MIPI CSI camera connector. This enables the DC barrel power supply.
     <figure>
-    <img src='/img/setup/eea60bd8b76d5bee61801abff56226c9.png'>
+    <img src='../img/setup/eea60bd8b76d5bee61801abff56226c9.png'>
     <figcaption></figcaption>
     </figure></li>
 <li>Connect your DC barrel jack power supply (5V/4A). The Jetson Nano Developer Kit will power on and boot automatically.</li>
@@ -1181,7 +1181,7 @@ The JupyterLab server running on the Jetson Nano will open up with a login promp
 <li>Enter the password: dlinano
 You will see this screen. Congratulations!
     <figure>
-    <img src='/img/setup/jup_launch_home.png'>
+    <img src='../img/setup/jup_launch_home.png'>
     <figcaption></figcaption>
     </figure></li>
 </ol>
@@ -1226,29 +1226,29 @@ You will see this screen. Congratulations!
 <h3 id="connecting-the-logitech-c270-webcam-recommended-configuration">Connecting The Logitech C270 Webcam (Recommended Configuration)</h3>
 <p>This is very straightforward. Just plug in the USB connector into any of the Jetson Nano Developer Kit USB ports.
     <figure>
-    <img src='/img/setup/usbcam_setup_sm.jpg'>
+    <img src='../img/setup/usbcam_setup_sm.jpg'>
     <figcaption></figcaption>
     </figure></p>
 <h3 id="alternate-configuration-raspberry-pi-v2-camera">(Alternate Configuration) Raspberry Pi V2 Camera</h3>
 <ol>
 <li>If you want to try this lab with a RasBerry Pi v2 Camera, you will need to connect to the MIPI CSI port. Begin by unlatching the MIPI CSI connector. This loosens the "grip" of the connector by just a small amount.
     <figure>
-    <img src='/img/setup/unlatch_csi_sm.jpg'>
+    <img src='../img/setup/unlatch_csi_sm.jpg'>
     <figcaption></figcaption>
     </figure></li>
 <li>Insert the ribbon cable of the camera so that the metal side faces into the Nano board.
     <figure>
-    <img src='/img/setup/pi_cam_insert_sm.jpg'>
+    <img src='../img/setup/pi_cam_insert_sm.jpg'>
     <figcaption></figcaption>
     </figure></li>
 <li>Latch the connector with a gentle push downward on the sides of the plastic. The ribbon cable should be securely held by the connector
     <figure>
-    <img src='/img/setup/pi_cam_latch_sm.jpg'>
+    <img src='../img/setup/pi_cam_latch_sm.jpg'>
     <figcaption></figcaption>
     </figure></li>
 <li>Remove the protective film from the lens of the camera.
     <figure>
-    <img src='/img/setup/camera_film_remove.gif'>
+    <img src='../img/setup/camera_film_remove.gif'>
     <figcaption></figcaption>
     </figure></li>
 </ol>
@@ -1289,22 +1289,22 @@ The JupyterLab server running on the Jetson Nano will open up.</li>
 <ol>
 <li>Navigate to the nvdli-nano folder with a double-click
     <figure>
-    <img src='/img/setup/jup_nvdli_launch_select.png'>
+    <img src='../img/setup/jup_nvdli_launch_select.png'>
     <figcaption></figcaption>
     </figure></li>
 <li>Navigate to the hello_camera folder in the same way
     <figure>
-    <img src='/img/setup/hello_camera_select.png'>
+    <img src='../img/setup/hello_camera_select.png'>
     <figcaption></figcaption>
     </figure></li>
 <li>If you are testing a USB webcam camera such as the Logitech C270, double-click the usb_camera.ipynb notebook to open it. If you are testing a CSI camera, double-click the csi_camera.ipynb instead.
     <figure>
-    <img src='/img/setup/usb_nb_select.png'>
+    <img src='../img/setup/usb_nb_select.png'>
     <figcaption></figcaption>
     </figure></li>
 <li>Find out more about JupyterLab in the next section. If you are already familiar with JupyterLab features, go ahead and jump right in! When you're satisfied that your camera works correctly, return here for project instructions.
     <figure>
-    <img src='/img/setup/opened_notebook.png'>
+    <img src='../img/setup/opened_notebook.png'>
     <figcaption></figcaption>
     </figure></li>
 </ol>
@@ -1315,7 +1315,7 @@ The JupyterLab server running on the Jetson Nano will open up.</li>
 <h3 id="jupyterlab-interface">JupyterLab Interface</h3>
 <p>The JupyterLab Interface is a dashboard that provides access to interactive iPython notebooks, as well as the folder structure for your Jetson Nano and a terminal window into the Ubuntu operating system. The first view you'll see includes a menu bar at the top, a directory tree in the left sidebar, and a main work area that is initially open to the "Launcher" page.
     <figure>
-    <img src='/img/setup/jupyter_legend.png'>
+    <img src='../img/setup/jupyter_legend.png'>
     <figcaption></figcaption>
     </figure>
 Complete details for all the features and menu actions available can be found in the JupyterLab Interface document. Here are some key capabilities that will be especially useful in this course:</p>
@@ -1324,25 +1324,25 @@ Complete details for all the features and menu actions available can be found in
 <p><strong>iPython notebooks:</strong></p>
 <p>The interactive notebooks used in this course have an ".ipynb" file extension. When a notebook is double-clicked from the file browser, it will open in the main work area and its process will start. The notebooks consist of text and code "cells". When a code cell is "run", by clicking the run button at the top of the notebook or the keyboard shortcut [CTRL][ENTER], the block of code in the cell is executed and the output, if there is any, appears below the cell in the notebook. To the left of each executable cell there is an "execution count" or "prompt number" in brackets. If the cell takes more than a few seconds to run, you will see an asterisk mark there, indicating that the cell has not finished its execution. Once processing of that cell is finished, a number will show in the brackets.
     <figure>
-    <img src='/img/setup/run_jupyter_cells.png'>
+    <img src='../img/setup/run_jupyter_cells.png'>
     <figcaption></figcaption>
     </figure></p>
 <p><strong>Kernel operations:</strong></p>
 <p>The kernel for each running notebook is a separate process that runs the user code. The kernel starts automatically when the notebook is opened from the file browser. The kernel menu on the main menu bar includes commands to shutdown or restart the kernel, which you will need to use periodically. After a kernel shutdown, no code cells can be executed. When a kernel is restarted, all memory is lost regarding imported packages, variable assignments, and so on.
     <figure>
-    <img src='/img/setup/JL_Shutdown-kernel_720p.gif'>
+    <img src='../img/setup/JL_Shutdown-kernel_720p.gif'>
     <figcaption></figcaption>
     </figure></p>
 <p><strong>Cell tabs:</strong></p>
 <p>You can move any cell to new window tabs in the main work area by right-clicking the cell and selecting "Create New View for Output". This way, you can continue to scroll down the JupyterLab notebook while still watching a particular cell. This is especially helpful in the cell includes a camera view!
     <figure>
-    <img src='/img/setup/JL_New-View-For-Output_720p.gif'>
+    <img src='../img/setup/JL_New-View-For-Output_720p.gif'>
     <figcaption></figcaption>
     </figure></p>
 <p><strong>Terminal window:</strong></p>
 <p>You can work directly in a Terminal window on your Jetson Nano Ubuntu OS. From the Launcher page, click the Terminal icon under "Other". To bring up the Launcher page, if it is no longer visible, click the "+" icon at the top of the left sidebar.
     <figure>
-    <img src='/img/setup/JL_Terminal_720p.gif'>
+    <img src='../img/setup/JL_Terminal_720p.gif'>
     <figcaption></figcaption>
     </figure></p>
                 
